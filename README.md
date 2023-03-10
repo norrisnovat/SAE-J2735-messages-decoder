@@ -6,7 +6,12 @@ Feel free to make your own changes!
 ## Prerequisites:
 * python3:   `sudo apt install python3`
 * pip3:      `sudo apt install python3-pip`
-* wireshark: `sudo apt-get install wireshark`
+* wireshark: 
+```
+$ sudo add-apt-repository ppa:wireshark-dev/stable
+$ sudo apt update
+$ sudo apt install wireshark
+```
 * pycrate:   `pip3 install pycrate`
 * numpy:     `pip3 install numpy`
 
