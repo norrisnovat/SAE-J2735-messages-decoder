@@ -46,6 +46,13 @@ def convID(id, length):
 
     return id
 
+def writeSpatHeader(instersectionPhaseArray):
+    columnHeaderString="packetTimestamp,intersectionID"
+    for headerPhase in range(1,instersectionPhaseArray):
+        columnHeaderString = columnHeaderString + ",phase" + str(headerPhase) + "_eventState"
+    columnHeaderString = columnHeaderString + ",hex\n"
+    fout.write(columnHeaderString)
+
 
 if (len(sys.argv) < 4) :
     print("Incomplete Arguments")
@@ -56,17 +63,10 @@ fp1 = open(sys.argv[1],'r')
 fout = open(sys.argv[2],'w')
 msgType = sys.argv[3].strip(' \n')
 msgid = sys.argv[4]
-numSpatPhases = 31 #use one more than desired phases
 
 
 if (msgType == "BSM") :
-    fout.write("packetTimestamp,bsm id,secMark,latency,latitude,longitude,speed(m/s),heading,elevation(m),accel_long(m/s^2),hex\n")
-elif (msgType=="SPAT") :
-    columnHeaderString="packetTimestamp,spatTimestamp,intersectionID,intersectionName"
-    for headerPhase in range(1,numSpatPhases):
-        columnHeaderString = columnHeaderString + ",phase" + str(headerPhase) + "_eventState"
-    columnHeaderString = columnHeaderString + ",hex\n"
-    fout.write(columnHeaderString)
+    fout.write("packetTimestamp,bsm_id,secMark,latency,latitude,longitude,speed(m/s),heading,elevation(m),accel_long(m/s^2),hex\n")
 elif (msgType=="MAP"):
     fout.write("packetTimestamp,intersectionID,hex\n")  
 elif (msgType=="Mobility Request"):
@@ -102,20 +102,21 @@ for dt in list1:
 
         
         if (msgid == "0013") :
-            spatPhaseArray = [""] * numSpatPhases
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
-            intersectionName = msg()['value'][1]['intersections'][0]['name']
-            spatTimestamp = msg()['value'][1]['intersections'][0]['timeStamp']
             instersectionPhaseArray = msg()['value'][1]['intersections'][0]['states']
-            
+
+            numPhases = len(instersectionPhaseArray)+1
+            spatPhaseArray = [""] * numPhases
+            writeSpatHeader(numPhases - 1)
+
             for phase in range(len(instersectionPhaseArray)):
                 currentPhase = msg()['value'][1]['intersections'][0]['states'][phase].get('signalGroup')
-                currentState = str(msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState'])
+                currentState = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState']
                 spatPhaseArray[currentPhase] = currentState
             
-            spatString = str(dt[0]) + "," + str(spatTimestamp) + "," + str(intersectionID) + "," + intersectionName 
+            spatString = str(dt[0]) + "," + str(intersectionID)
             
-            for printPhase in range(1,numSpatPhases):
+            for printPhase in range(1,len(instersectionPhaseArray)):
                 spatString = spatString + "," + spatPhaseArray[printPhase]
             spatString = spatString + ',' + str(dt[1]) + "\n"
             

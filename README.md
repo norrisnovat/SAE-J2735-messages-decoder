@@ -9,9 +9,10 @@ Feel free to make your own changes!
 * wireshark: 
 ```
 $ sudo add-apt-repository ppa:wireshark-dev/stable
-$ sudo apt update
-$ sudo apt install wireshark
+$ sudo apt-get update
+$ sudo apt-get -y install wireshark
 ```
+* tshark:	 `sudo apt-get -y install tshark`
 * pycrate:   `pip3 install pycrate`
 * numpy:     `pip3 install numpy`
 

@@ -38,5 +38,4 @@ open(fileName[0]+'_payload.csv', 'w', newline='') as write_obj:
                 if index[k] < smallerIndex:
                     smallerIndex = index[k]
                     msg = row[1][smallerIndex:]
-        
-        csv_writer.writerow([row[0],msg])
+                    csv_writer.writerow([row[0],msg])
