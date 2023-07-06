@@ -1,6 +1,6 @@
 ## Overview
 These scripts decode SAE J2735 messages. Not every field is decoded, but desired fields can easily be added in the decoder.py script. 
-The scripts are meant to decode only one message type at time from one .pcap file. However, they may be edited to decode every message type within a file.
+The scripts are meant to decode only one message type at a time from one .pcap file. However, they may be edited to decode every message type within a file.
 Feel free to make your own changes!
 
 ## Prerequisites:
