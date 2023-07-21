@@ -46,10 +46,9 @@ def convID(id, length):
 
     return id
 
-def writeSpatHeader(instersectionPhaseArray):
+def writeSpatHeader():
     columnHeaderString="packetTimestamp,intersectionID"
-    for headerPhase in range(1,instersectionPhaseArray):
-        columnHeaderString = columnHeaderString + ",phase" + str(headerPhase) + "_eventState"
+    columnHeaderString = columnHeaderString + ",phase4_eventState" + ",phase8_eventState"
     columnHeaderString = columnHeaderString + ",hex\n"
     fout.write(columnHeaderString)
 
@@ -105,21 +104,23 @@ for dt in list1:
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
             instersectionPhaseArray = msg()['value'][1]['intersections'][0]['states']
 
-            numPhases = len(instersectionPhaseArray)+1
-            spatPhaseArray = [""] * numPhases
-            writeSpatHeader(numPhases - 1)
+            numPhases = 2 # use number of desired phases
+            spatPhaseArray = [None] * numPhases
+            writeSpatHeader()
 
             for phase in range(len(instersectionPhaseArray)):
                 currentPhase = msg()['value'][1]['intersections'][0]['states'][phase].get('signalGroup')
-                currentState = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState']
-                spatPhaseArray[currentPhase] = currentState
+                currentState = str(msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState'])
+                if (currentPhase == 4):
+                    spatPhaseArray[0] = currentState
+                elif (currentPhase == 8):
+                    spatPhaseArray[1] = currentState
             
             spatString = str(dt[0]) + "," + str(intersectionID)
-            
-            for printPhase in range(1,len(instersectionPhaseArray)):
+            for printPhase in range(0, numPhases):
                 spatString = spatString + "," + spatPhaseArray[printPhase]
             spatString = spatString + ',' + str(dt[1]) + "\n"
-            
+
             fout.write(spatString)
 
         elif (msgid == "0012") :
