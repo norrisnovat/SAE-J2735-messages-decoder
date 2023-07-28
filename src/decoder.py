@@ -48,7 +48,7 @@ def convID(id, length):
 
 def writeSpatHeader():
     columnHeaderString="packetTimestamp,intersectionID"
-    columnHeaderString = columnHeaderString + ",phase4_eventState" + ",phase8_eventState"
+    columnHeaderString = columnHeaderString + ",phase4_eventState" + ",phase8_eventState" + ",phase4_countdown" + ",phase8_countdown"
     columnHeaderString = columnHeaderString + ",hex\n"
     fout.write(columnHeaderString)
 
@@ -111,15 +111,44 @@ for dt in list1:
             for phase in range(len(instersectionPhaseArray)):
                 currentPhase = msg()['value'][1]['intersections'][0]['states'][phase].get('signalGroup')
                 currentState = str(msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState'])
+                moy = msg()['value'][1]['intersections'][0]['moy']
+                minEndTime = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['timing']['minEndTime']
+                maxEndTime = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['timing']['maxEndTime']
                 if (currentPhase == 4):
                     spatPhaseArray[0] = currentState
+                    if (minEndTime == 36001):
+                        timeEndSec_four = maxEndTime/6
+                    else:
+                        timeEndSec_four = minEndTime/6
+                    print("4 Sec: ", timeEndSec_four)
                 elif (currentPhase == 8):
                     spatPhaseArray[1] = currentState
+                    if (minEndTime == 36001):
+                        timeEndSec_eight = maxEndTime/6
+                    else:
+                        timeEndSec_eight = minEndTime/6
+                    print("8 Sec: ", timeEndSec_eight)
+                elif (currentPhase == 14):
+                    if (minEndTime == 36001):
+                        timeEndMil_four = maxEndTime/6
+                    else:
+                        timeEndMil_four = minEndTime/6
+                    print("Mil 4: ", timeEndMil_four)
+                elif (currentPhase == 9):
+                    if (minEndTime == 36001):
+                        timeEndMil_eight = maxEndTime/6
+                    else:
+                        timeEndMil_eight = minEndTime/6
+                    print("Mil 8:", timeEndMil_eight)
             
+            countdown_four = round(timeEndSec_four - timeEndMil_four, 1)
+            print("Time end 4: ", countdown_four)
+            countdown_eight = round(timeEndSec_eight - timeEndMil_eight, 1)
+            print("Time End 8: ", countdown_eight)
             spatString = str(dt[0]) + "," + str(intersectionID)
             for printPhase in range(0, numPhases):
                 spatString = spatString + "," + spatPhaseArray[printPhase]
-            spatString = spatString + ',' + str(dt[1]) + "\n"
+            spatString = spatString + ',' + str(countdown_four) + ',' + str(countdown_eight) + ',' + str(dt[1]) + "\n"
 
             fout.write(spatString)
 
