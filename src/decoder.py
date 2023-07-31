@@ -120,31 +120,25 @@ for dt in list1:
                         timeEndSec_four = maxEndTime/6
                     else:
                         timeEndSec_four = minEndTime/6
-                    print("4 Sec: ", timeEndSec_four)
                 elif (currentPhase == 8):
                     spatPhaseArray[1] = currentState
                     if (minEndTime == 36001):
                         timeEndSec_eight = maxEndTime/6
                     else:
                         timeEndSec_eight = minEndTime/6
-                    print("8 Sec: ", timeEndSec_eight)
                 elif (currentPhase == 14):
                     if (minEndTime == 36001):
                         timeEndMil_four = maxEndTime/6
                     else:
                         timeEndMil_four = minEndTime/6
-                    print("Mil 4: ", timeEndMil_four)
                 elif (currentPhase == 9):
                     if (minEndTime == 36001):
                         timeEndMil_eight = maxEndTime/6
                     else:
                         timeEndMil_eight = minEndTime/6
-                    print("Mil 8:", timeEndMil_eight)
             
             countdown_four = round(timeEndSec_four - timeEndMil_four, 1)
-            print("Time end 4: ", countdown_four)
             countdown_eight = round(timeEndSec_eight - timeEndMil_eight, 1)
-            print("Time End 8: ", countdown_eight)
             spatString = str(dt[0]) + "," + str(intersectionID)
             for printPhase in range(0, numPhases):
                 spatString = spatString + "," + spatPhaseArray[printPhase]
