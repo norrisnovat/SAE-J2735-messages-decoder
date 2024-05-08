@@ -48,9 +48,28 @@ def convID(id, length):
 
 def writeSpatHeader():
     columnHeaderString="packetTimestamp,intersectionID"
-    columnHeaderString = columnHeaderString + ",phase4_eventState" + ",phase8_eventState" + ",phase4_countdown" + ",phase8_countdown"
-    columnHeaderString = columnHeaderString + ",hex\n"
+    columnHeaderString = columnHeaderString + ",phase" + ",state" + ",countdown\n"
     fout.write(columnHeaderString)
+
+def writeMessageHeader(msgType):
+    if (msgType == "BSM") :
+        fout.write("packetTimestamp,bsm_id,secMark,latency,latitude,longitude,speed(m/s),heading,elevation(m),accel_long(m/s^2)\n")
+    elif (msgType=="MAP"):
+        fout.write("packetTimestamp,intersectionID,latitude,longitude,laneWidth\n")  
+    elif (msgType=="Mobility Request"):
+        fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,planType,urgency,strategyParams,trajectoryStart,trajectory,expiration\n")
+    elif (msgType=="Mobility Response") : 
+        fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,urgency,isAccepted\n")
+    elif (msgType=="Mobility Path") : 
+        fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,location,trajectory\n")
+    elif (msgType=="Mobility Operation") : 
+        fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,operationParams:\n")
+    elif (msgType=="Traffic Control Request") :
+        fout.write("packetTimestamp,reqid,reqseq,scale,bounds:\n")
+    elif (msgType=="Traffic Control Message") : 
+        fout.write("packetTimestamp,reqid,reqseq,msgtot,msgnum,id,updated,label,tcID,vclasses...,schedule...,detail...,geometry...\n")
+    elif (msgType == "SPAT"):
+        writeSpatHeader()
 
 
 if (len(sys.argv) < 4) :
@@ -63,23 +82,7 @@ fout = open(sys.argv[2],'w')
 msgType = sys.argv[3].strip(' \n')
 msgid = sys.argv[4]
 
-
-if (msgType == "BSM") :
-    fout.write("packetTimestamp,bsm_id,secMark,latency,latitude,longitude,speed(m/s),heading,elevation(m),accel_long(m/s^2),hex\n")
-elif (msgType=="MAP"):
-    fout.write("packetTimestamp,intersectionID,hex\n")  
-elif (msgType=="Mobility Request"):
-    fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,planType,urgency,strategyParams,trajectoryStart,trajectory,expiration\n")
-elif (msgType=="Mobility Response") : 
-    fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,urgency,isAccepted\n")
-elif (msgType=="Mobility Path") : 
-    fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,location,trajectory\n")
-elif (msgType=="Mobility Operation") : 
-    fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,operationParams:\n")
-elif (msgType=="Traffic Control Request") :
-    fout.write("packetTimestamp,reqid,reqseq,scale,bounds:\n")
-elif (msgType=="Traffic Control Message") : 
-    fout.write("packetTimestamp,reqid,reqseq,msgtot,msgnum,id,updated,label,tcID,vclasses...,schedule...,detail...,geometry...\n")
+writeMessageHeader(msgType)
 
 
 fp = csv.reader(fp1,delimiter=',')
@@ -100,60 +103,38 @@ for dt in list1:
             continue
 
         
+        # SPAT
         if (msgid == "0013") :
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
             instersectionPhaseArray = msg()['value'][1]['intersections'][0]['states']
-
+            
+            # used later when exact number or phases is known
             numPhases = 2 # use number of desired phases
             spatPhaseArray = [None] * numPhases
-            writeSpatHeader()
 
             for phase in range(len(instersectionPhaseArray)):
                 currentPhase = msg()['value'][1]['intersections'][0]['states'][phase].get('signalGroup')
                 currentState = str(msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['eventState'])
-                moy = msg()['value'][1]['intersections'][0]['moy']
                 minEndTime = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['timing']['minEndTime']
                 maxEndTime = msg()['value'][1]['intersections'][0]['states'][phase]['state-time-speed'][0]['timing']['maxEndTime']
-                if (currentPhase == 4):
-                    spatPhaseArray[0] = currentState
-                    if (minEndTime == 36001):
-                        timeEndSec_four = maxEndTime/6
-                    else:
-                        timeEndSec_four = minEndTime/6
-                elif (currentPhase == 8):
-                    spatPhaseArray[1] = currentState
-                    if (minEndTime == 36001):
-                        timeEndSec_eight = maxEndTime/6
-                    else:
-                        timeEndSec_eight = minEndTime/6
-                elif (currentPhase == 14):
-                    if (minEndTime == 36001):
-                        timeEndMil_four = maxEndTime/6
-                    else:
-                        timeEndMil_four = minEndTime/6
-                elif (currentPhase == 9):
-                    if (minEndTime == 36001):
-                        timeEndMil_eight = maxEndTime/6
-                    else:
-                        timeEndMil_eight = minEndTime/6
-            
-            countdown_four = round(timeEndSec_four - timeEndMil_four, 1)
-            countdown_eight = round(timeEndSec_eight - timeEndMil_eight, 1)
-            spatString = str(dt[0]) + "," + str(intersectionID)
-            for printPhase in range(0, numPhases):
-                spatString = spatString + "," + spatPhaseArray[printPhase]
-            spatString = spatString + ',' + str(countdown_four) + ',' + str(countdown_eight) + ',' + str(dt[1]) + "\n"
+                if (minEndTime == 36001):
+                    timeEndSec = maxEndTime/6
+                else:
+                    timeEndSec = minEndTime/6
 
-            fout.write(spatString)
+                spatString = str(dt[0]) + "," + str(intersectionID) + "," + str(currentPhase) + "," + str(currentState) + "," + str(timeEndSec) + "\n"
+                fout.write(spatString)
 
+        # MAP
         elif (msgid == "0012") :
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
             #if intersectionID == intersection:
             lat = msg()['value'][1]['intersections'][0]['refPoint']['lat']
             longstr = msg()['value'][1]['intersections'][0]['refPoint']['long']
             laneWidth = msg()['value'][1]['intersections'][0]['laneWidth']
-            fout.write(str(dt[0])+','+str(intersectionID)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(laneWidth)+','+str(dt[1])+'\n')
-
+            fout.write(str(dt[0])+','+str(intersectionID)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(laneWidth)+'\n')
+        
+        # BSM
         elif (msgid == "0014") : # if bsm , look for lat, long, speed along with time
             bsmId = msg()['value'][1]['coreData']['id']
             lat= msg()['value'][1]['coreData']['lat']
@@ -177,8 +158,9 @@ for dt in list1:
             
             latency_array.append(latency)
             
-            fout.write(str(dt[0])+','+str(bsmId.hex())+','+str(secMark)+','+str(latency)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(speed_converted)+','+str(heading)+','+str(accel_long_converted)+','+ str(elevation)+','+str(dt[1])+'\n')
+            fout.write(str(dt[0])+','+str(bsmId.hex())+','+str(secMark)+','+str(latency)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(speed_converted)+','+str(heading)+','+str(accel_long_converted)+','+ str(elevation)+'\n')
 
+        # Test Messages
         elif (msgid == "00f0") :
             hostStaticId = msg()['value'][1]['header']['hostStaticId']
             hostBSMId = msg()['value'][1]['header']['hostBSMId']
