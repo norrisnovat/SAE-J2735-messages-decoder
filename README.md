@@ -8,9 +8,9 @@ Feel free to make your own changes!
 * pip3:      `sudo apt install python3-pip`
 * wireshark: 
 ```
-$ sudo add-apt-repository ppa:wireshark-dev/stable
-$ sudo apt-get update
-$ sudo apt-get -y install wireshark
+sudo add-apt-repository ppa:wireshark-dev/stable
+sudo apt-get update
+sudo apt-get -y install wireshark
 ```
 * tshark:	 `sudo apt-get -y install tshark`
 * pycrate:   `pip3 install pycrate`
