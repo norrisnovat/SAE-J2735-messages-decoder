@@ -84,6 +84,8 @@ class DSRC:
         'MobilityPath',
         'MobilityRequest',
         'MobilityResponse',
+        'EmergencyVehicleResponse',
+        'EmergencyVehicleAck',
         'Id64b',
         'Id128b',
         'EpochMins',
@@ -393,6 +395,7 @@ class DSRC:
         'signalStatusMessage',
         'travelerInformation',
         'personalSafetyMessage',
+        'sensorDataSharingMessage',
         'testMessage00',
         'testMessage01',
         'testMessage02',
@@ -534,6 +537,7 @@ class DSRC:
         'addGrpA',
         'addGrpB',
         'addGrpC',
+        'addGrpCarma',
         'RequestedItem',
         'RequestID',
         'RequestImportanceLevel',
@@ -675,6 +679,8 @@ class DSRC:
         'MobilityPath',
         'MobilityRequest',
         'MobilityResponse',
+        'EmergencyVehicleResponse',
+        'EmergencyVehicleAck',
         'Id64b',
         'Id128b',
         'EpochMins',
@@ -1184,6 +1190,7 @@ class DSRC:
         'signalStatusMessage',
         'travelerInformation',
         'personalSafetyMessage',
+        'sensorDataSharingMessage',
         'testMessage00',
         'testMessage01',
         'testMessage02',
@@ -1214,6 +1221,7 @@ class DSRC:
         'addGrpA',
         'addGrpB',
         'addGrpC',
+        'addGrpCarma',
         ]
     _class_ = [
         'MESSAGE-ID-AND-TYPE',
@@ -1262,7 +1270,8 @@ class DSRC:
     ___MessageFrame_messageId_tab_val_Type_28 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage13')))
     ___MessageFrame_messageId_tab_val_Type_29 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage14')))
     ___MessageFrame_messageId_tab_val_Type_30 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage15')))
-    __MessageFrame_messageId_tab._val = ASN1Set(rv=[dict([('Type', ___MessageFrame_messageId_tab_val_Type_0), ('id', 20)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_1), ('id', 18)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_2), ('id', 19)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_3), ('id', 21)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_4), ('id', 22)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_5), ('id', 23)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_6), ('id', 24)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_7), ('id', 25)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_8), ('id', 26)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_9), ('id', 27)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_10), ('id', 28)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_11), ('id', 29)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_12), ('id', 30)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_13), ('id', 31)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_14), ('id', 32)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_15), ('id', 240)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_16), ('id', 241)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_17), ('id', 242)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_18), ('id', 243)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_19), ('id', 244)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_20), ('id', 245)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_21), ('id', 246)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_22), ('id', 247)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_23), ('id', 248)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_24), ('id', 249)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_25), ('id', 250)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_26), ('id', 251)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_27), ('id', 252)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_28), ('id', 253)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_29), ('id', 254)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_30), ('id', 255)])], rr=[], ev=None, er=[])
+    ___MessageFrame_messageId_tab_val_Type_31 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('SDSM', 'SensorDataSharingMessage')))
+    __MessageFrame_messageId_tab._val = ASN1Set(rv=[dict([('Type', ___MessageFrame_messageId_tab_val_Type_0), ('id', 20)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_1), ('id', 18)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_2), ('id', 19)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_3), ('id', 21)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_4), ('id', 22)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_5), ('id', 23)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_6), ('id', 24)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_7), ('id', 25)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_8), ('id', 26)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_9), ('id', 27)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_10), ('id', 28)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_11), ('id', 29)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_12), ('id', 30)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_13), ('id', 31)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_14), ('id', 32)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_15), ('id', 240)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_16), ('id', 241)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_17), ('id', 242)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_18), ('id', 243)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_19), ('id', 244)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_20), ('id', 245)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_21), ('id', 246)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_22), ('id', 247)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_23), ('id', 248)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_24), ('id', 249)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_25), ('id', 250)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_26), ('id', 251)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_27), ('id', 252)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_28), ('id', 253)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_29), ('id', 254)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_30), ('id', 255)]), dict([('Type', ___MessageFrame_messageId_tab_val_Type_31), ('id', 41)])], rr=[], ev=None, er=[])
     _MessageFrame_messageId._const_tab = __MessageFrame_messageId_tab
     _MessageFrame_messageId._const_tab_at = None
     _MessageFrame_messageId._const_tab_id = 'id'
@@ -1318,7 +1327,8 @@ class DSRC:
     _MessageTypes_val_Type_28 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage13')))
     _MessageTypes_val_Type_29 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage14')))
     _MessageTypes_val_Type_30 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'TestMessage15')))
-    MessageTypes._val = ASN1Set(rv=[dict([('Type', _MessageTypes_val_Type_0), ('id', 20)]), dict([('Type', _MessageTypes_val_Type_1), ('id', 18)]), dict([('Type', _MessageTypes_val_Type_2), ('id', 19)]), dict([('Type', _MessageTypes_val_Type_3), ('id', 21)]), dict([('Type', _MessageTypes_val_Type_4), ('id', 22)]), dict([('Type', _MessageTypes_val_Type_5), ('id', 23)]), dict([('Type', _MessageTypes_val_Type_6), ('id', 24)]), dict([('Type', _MessageTypes_val_Type_7), ('id', 25)]), dict([('Type', _MessageTypes_val_Type_8), ('id', 26)]), dict([('Type', _MessageTypes_val_Type_9), ('id', 27)]), dict([('Type', _MessageTypes_val_Type_10), ('id', 28)]), dict([('Type', _MessageTypes_val_Type_11), ('id', 29)]), dict([('Type', _MessageTypes_val_Type_12), ('id', 30)]), dict([('Type', _MessageTypes_val_Type_13), ('id', 31)]), dict([('Type', _MessageTypes_val_Type_14), ('id', 32)]), dict([('Type', _MessageTypes_val_Type_15), ('id', 240)]), dict([('Type', _MessageTypes_val_Type_16), ('id', 241)]), dict([('Type', _MessageTypes_val_Type_17), ('id', 242)]), dict([('Type', _MessageTypes_val_Type_18), ('id', 243)]), dict([('Type', _MessageTypes_val_Type_19), ('id', 244)]), dict([('Type', _MessageTypes_val_Type_20), ('id', 245)]), dict([('Type', _MessageTypes_val_Type_21), ('id', 246)]), dict([('Type', _MessageTypes_val_Type_22), ('id', 247)]), dict([('Type', _MessageTypes_val_Type_23), ('id', 248)]), dict([('Type', _MessageTypes_val_Type_24), ('id', 249)]), dict([('Type', _MessageTypes_val_Type_25), ('id', 250)]), dict([('Type', _MessageTypes_val_Type_26), ('id', 251)]), dict([('Type', _MessageTypes_val_Type_27), ('id', 252)]), dict([('Type', _MessageTypes_val_Type_28), ('id', 253)]), dict([('Type', _MessageTypes_val_Type_29), ('id', 254)]), dict([('Type', _MessageTypes_val_Type_30), ('id', 255)])], rr=[], ev=[], er=[])
+    _MessageTypes_val_Type_31 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('SDSM', 'SensorDataSharingMessage')))
+    MessageTypes._val = ASN1Set(rv=[dict([('Type', _MessageTypes_val_Type_0), ('id', 20)]), dict([('Type', _MessageTypes_val_Type_1), ('id', 18)]), dict([('Type', _MessageTypes_val_Type_2), ('id', 19)]), dict([('Type', _MessageTypes_val_Type_3), ('id', 21)]), dict([('Type', _MessageTypes_val_Type_4), ('id', 22)]), dict([('Type', _MessageTypes_val_Type_5), ('id', 23)]), dict([('Type', _MessageTypes_val_Type_6), ('id', 24)]), dict([('Type', _MessageTypes_val_Type_7), ('id', 25)]), dict([('Type', _MessageTypes_val_Type_8), ('id', 26)]), dict([('Type', _MessageTypes_val_Type_9), ('id', 27)]), dict([('Type', _MessageTypes_val_Type_10), ('id', 28)]), dict([('Type', _MessageTypes_val_Type_11), ('id', 29)]), dict([('Type', _MessageTypes_val_Type_12), ('id', 30)]), dict([('Type', _MessageTypes_val_Type_13), ('id', 31)]), dict([('Type', _MessageTypes_val_Type_14), ('id', 32)]), dict([('Type', _MessageTypes_val_Type_15), ('id', 240)]), dict([('Type', _MessageTypes_val_Type_16), ('id', 241)]), dict([('Type', _MessageTypes_val_Type_17), ('id', 242)]), dict([('Type', _MessageTypes_val_Type_18), ('id', 243)]), dict([('Type', _MessageTypes_val_Type_19), ('id', 244)]), dict([('Type', _MessageTypes_val_Type_20), ('id', 245)]), dict([('Type', _MessageTypes_val_Type_21), ('id', 246)]), dict([('Type', _MessageTypes_val_Type_22), ('id', 247)]), dict([('Type', _MessageTypes_val_Type_23), ('id', 248)]), dict([('Type', _MessageTypes_val_Type_24), ('id', 249)]), dict([('Type', _MessageTypes_val_Type_25), ('id', 250)]), dict([('Type', _MessageTypes_val_Type_26), ('id', 251)]), dict([('Type', _MessageTypes_val_Type_27), ('id', 252)]), dict([('Type', _MessageTypes_val_Type_28), ('id', 253)]), dict([('Type', _MessageTypes_val_Type_29), ('id', 254)]), dict([('Type', _MessageTypes_val_Type_30), ('id', 255)]), dict([('Type', _MessageTypes_val_Type_31), ('id', 41)])], rr=[], ev=[], er=[])
     
     #-----< REG-EXT-ID-AND-TYPE >-----#
     REG_EXT_ID_AND_TYPE = CLASS(name='REG-EXT-ID-AND-TYPE', mode=MODE_TYPE)
@@ -1361,14 +1371,13 @@ class DSRC:
     __BasicSafetyMessage_regional__item_ = SEQ(name='_item_', mode=MODE_TYPE, typeref=ASN1RefType(('DSRC', 'RegionalExtension')))
     ___BasicSafetyMessage_regional__item__regionId = INT(name='regionId', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['id']))
     ____BasicSafetyMessage_regional__item__regionId_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ____BasicSafetyMessage_regional__item__regionId_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
+    _____BasicSafetyMessage_regional__item__regionId_tab_val_Type_0 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('AddGrpCarma', 'BasicSafetyMessage-addGrpCarma')))
+    ____BasicSafetyMessage_regional__item__regionId_tab._val = ASN1Set(rv=[dict([('Type', _____BasicSafetyMessage_regional__item__regionId_tab_val_Type_0), ('id', 128)])], rr=[], ev=None, er=[])
     ___BasicSafetyMessage_regional__item__regionId._const_tab = ____BasicSafetyMessage_regional__item__regionId_tab
     ___BasicSafetyMessage_regional__item__regionId._const_tab_at = None
     ___BasicSafetyMessage_regional__item__regionId._const_tab_id = 'id'
     ___BasicSafetyMessage_regional__item__regExtValue = OPEN(name='regExtValue', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_EXPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['Type']))
-    ____BasicSafetyMessage_regional__item__regExtValue_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ____BasicSafetyMessage_regional__item__regExtValue_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
-    ___BasicSafetyMessage_regional__item__regExtValue._const_tab = ____BasicSafetyMessage_regional__item__regExtValue_tab
+    ___BasicSafetyMessage_regional__item__regExtValue._const_tab = ____BasicSafetyMessage_regional__item__regionId_tab
     ___BasicSafetyMessage_regional__item__regExtValue._const_tab_at = ('..', 'regionId')
     ___BasicSafetyMessage_regional__item__regExtValue._const_tab_id = 'Type'
     __BasicSafetyMessage_regional__item_._cont = ASN1Dict([
@@ -2101,55 +2110,21 @@ class DSRC:
     
     #-----< TestMessage06 >-----#
     TestMessage06 = SEQ(name='TestMessage06', mode=MODE_TYPE)
-    _TestMessage06_header = SEQ(name='header', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Header')), opt=True)
-    _TestMessage06_regional = SEQ(name='regional', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'RegionalExtension')), opt=True)
-    __TestMessage06_regional_regionId = INT(name='regionId', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['id']))
-    ___TestMessage06_regional_regionId_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ___TestMessage06_regional_regionId_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
-    __TestMessage06_regional_regionId._const_tab = ___TestMessage06_regional_regionId_tab
-    __TestMessage06_regional_regionId._const_tab_at = None
-    __TestMessage06_regional_regionId._const_tab_id = 'id'
-    __TestMessage06_regional_regExtValue = OPEN(name='regExtValue', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_EXPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['Type']))
-    ___TestMessage06_regional_regExtValue_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ___TestMessage06_regional_regExtValue_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
-    __TestMessage06_regional_regExtValue._const_tab = ___TestMessage06_regional_regExtValue_tab
-    __TestMessage06_regional_regExtValue._const_tab_at = ('..', 'regionId')
-    __TestMessage06_regional_regExtValue._const_tab_id = 'Type'
-    _TestMessage06_regional._cont = ASN1Dict([
-        ('regionId', __TestMessage06_regional_regionId),
-        ('regExtValue', __TestMessage06_regional_regExtValue),
-        ])
-    _TestMessage06_regional._ext = None
+    _TestMessage06_header = SEQ(name='header', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'MobilityHeader')))
+    _TestMessage06_body = SEQ(name='body', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'EmergencyVehicleResponse')))
     TestMessage06._cont = ASN1Dict([
         ('header', _TestMessage06_header),
-        ('regional', _TestMessage06_regional),
+        ('body', _TestMessage06_body),
         ])
     TestMessage06._ext = []
     
     #-----< TestMessage07 >-----#
     TestMessage07 = SEQ(name='TestMessage07', mode=MODE_TYPE)
-    _TestMessage07_header = SEQ(name='header', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Header')), opt=True)
-    _TestMessage07_regional = SEQ(name='regional', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'RegionalExtension')), opt=True)
-    __TestMessage07_regional_regionId = INT(name='regionId', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['id']))
-    ___TestMessage07_regional_regionId_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ___TestMessage07_regional_regionId_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
-    __TestMessage07_regional_regionId._const_tab = ___TestMessage07_regional_regionId_tab
-    __TestMessage07_regional_regionId._const_tab_at = None
-    __TestMessage07_regional_regionId._const_tab_id = 'id'
-    __TestMessage07_regional_regExtValue = OPEN(name='regExtValue', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_EXPLICIT), typeref=ASN1RefClassField(('DSRC', 'REG-EXT-ID-AND-TYPE'), ['Type']))
-    ___TestMessage07_regional_regExtValue_tab = CLASS(name='_tab_REG-EXT-ID-AND-TYPE', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    ___TestMessage07_regional_regExtValue_tab._val = ASN1Set(rv=[], rr=[], ev=None, er=[])
-    __TestMessage07_regional_regExtValue._const_tab = ___TestMessage07_regional_regExtValue_tab
-    __TestMessage07_regional_regExtValue._const_tab_at = ('..', 'regionId')
-    __TestMessage07_regional_regExtValue._const_tab_id = 'Type'
-    _TestMessage07_regional._cont = ASN1Dict([
-        ('regionId', __TestMessage07_regional_regionId),
-        ('regExtValue', __TestMessage07_regional_regExtValue),
-        ])
-    _TestMessage07_regional._ext = None
+    _TestMessage07_header = SEQ(name='header', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'MobilityHeader')))
+    _TestMessage07_body = SEQ(name='body', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'EmergencyVehicleAck')))
     TestMessage07._cont = ASN1Dict([
         ('header', _TestMessage07_header),
-        ('regional', _TestMessage07_regional),
+        ('body', _TestMessage07_body),
         ])
     TestMessage07._ext = []
     
@@ -2529,6 +2504,25 @@ class DSRC:
         ])
     MobilityResponse._ext = None
     
+    #-----< EmergencyVehicleResponse >-----#
+    EmergencyVehicleResponse = SEQ(name='EmergencyVehicleResponse', mode=MODE_TYPE)
+    _EmergencyVehicleResponse_canChangeLanes = BOOL(name='canChangeLanes', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT))
+    _EmergencyVehicleResponse_reason = STR_IA5(name='reason', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), opt=True)
+    _EmergencyVehicleResponse_reason._const_sz = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=1, ub=127)], ev=None, er=[])
+    EmergencyVehicleResponse._cont = ASN1Dict([
+        ('canChangeLanes', _EmergencyVehicleResponse_canChangeLanes),
+        ('reason', _EmergencyVehicleResponse_reason),
+        ])
+    EmergencyVehicleResponse._ext = None
+    
+    #-----< EmergencyVehicleAck >-----#
+    EmergencyVehicleAck = SEQ(name='EmergencyVehicleAck', mode=MODE_TYPE)
+    _EmergencyVehicleAck_acknowledgement = BOOL(name='acknowledgement', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT))
+    EmergencyVehicleAck._cont = ASN1Dict([
+        ('acknowledgement', _EmergencyVehicleAck_acknowledgement),
+        ])
+    EmergencyVehicleAck._ext = None
+    
     #-----< Id64b >-----#
     Id64b = OCT_STR(name='Id64b', mode=MODE_TYPE)
     Id64b._const_sz = ASN1Set(rv=[8], rr=[], ev=None, er=[])
@@ -2674,7 +2668,7 @@ class DSRC:
     _TrafficControlGeometry_reflon = INT(name='reflon', mode=MODE_TYPE, tag=(3, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Longitude')))
     _TrafficControlGeometry_reflat = INT(name='reflat', mode=MODE_TYPE, tag=(4, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Latitude')))
     _TrafficControlGeometry_refelv = INT(name='refelv', mode=MODE_TYPE, tag=(5, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Elevation')))
-    _TrafficControlGeometry_refwidth = INT(name='refwidth', mode=MODE_TYPE, tag=(6, TAG_CONTEXT_SPEC, TAG_IMPLICIT))
+    _TrafficControlGeometry_refwidth = INT(name='refwidth', mode=MODE_TYPE, tag=(6, TAG_CONTEXT_SPEC, TAG_IMPLICIT), opt=True)
     _TrafficControlGeometry_refwidth._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=32767)], ev=None, er=[])
     _TrafficControlGeometry_heading = INT(name='heading', mode=MODE_TYPE, tag=(7, TAG_CONTEXT_SPEC, TAG_IMPLICIT))
     _TrafficControlGeometry_heading._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=3599)], ev=None, er=[])
@@ -6215,6 +6209,10 @@ class DSRC:
     personalSafetyMessage = INT(name='personalSafetyMessage', mode=MODE_VALUE, typeref=ASN1RefType(('DSRC', 'DSRCmsgID')))
     personalSafetyMessage._val = 32
     
+    #-----< sensorDataSharingMessage >-----#
+    sensorDataSharingMessage = INT(name='sensorDataSharingMessage', mode=MODE_VALUE, typeref=ASN1RefType(('DSRC', 'DSRCmsgID')))
+    sensorDataSharingMessage._val = 41
+    
     #-----< testMessage00 >-----#
     testMessage00 = INT(name='testMessage00', mode=MODE_VALUE, typeref=ASN1RefType(('DSRC', 'DSRCmsgID')))
     testMessage00._val = 240
@@ -6817,6 +6815,10 @@ class DSRC:
     addGrpC = INT(name='addGrpC', mode=MODE_VALUE, typeref=ASN1RefType(('DSRC', 'RegionId')))
     addGrpC._val = 3
     
+    #-----< addGrpCarma >-----#
+    addGrpCarma = INT(name='addGrpCarma', mode=MODE_VALUE, typeref=ASN1RefType(('DSRC', 'RegionId')))
+    addGrpCarma._val = 128
+    
     #-----< RequestedItem >-----#
     RequestedItem = ENUM(name='RequestedItem', mode=MODE_TYPE)
     RequestedItem._cont = ASN1Dict([('reserved', 0), ('itemA', 1), ('itemB', 2), ('itemC', 3), ('itemD', 4), ('itemE', 5), ('itemF', 6), ('itemG', 7), ('itemI', 8), ('itemJ', 9), ('itemK', 10), ('itemL', 11), ('itemM', 12), ('itemN', 13), ('itemO', 14), ('itemP', 15), ('itemQ', 16)])
@@ -7196,6 +7198,7 @@ class DSRC:
         ___MessageFrame_messageId_tab_val_Type_28,
         ___MessageFrame_messageId_tab_val_Type_29,
         ___MessageFrame_messageId_tab_val_Type_30,
+        ___MessageFrame_messageId_tab_val_Type_31,
         _MessageFrame_messageId,
         _MessageFrame_value,
         MessageFrame,
@@ -7234,6 +7237,7 @@ class DSRC:
         _MessageTypes_val_Type_28,
         _MessageTypes_val_Type_29,
         _MessageTypes_val_Type_30,
+        _MessageTypes_val_Type_31,
         _REG_EXT_ID_AND_TYPE_id,
         _REG_EXT_ID_AND_TYPE_Type,
         REG_EXT_ID_AND_TYPE,
@@ -7247,8 +7251,8 @@ class DSRC:
         __BasicSafetyMessage_partII__item_,
         _BasicSafetyMessage_partII,
         ____BasicSafetyMessage_regional__item__regionId_tab,
+        _____BasicSafetyMessage_regional__item__regionId_tab_val_Type_0,
         ___BasicSafetyMessage_regional__item__regionId,
-        ____BasicSafetyMessage_regional__item__regExtValue_tab,
         ___BasicSafetyMessage_regional__item__regExtValue,
         __BasicSafetyMessage_regional__item_,
         _BasicSafetyMessage_regional,
@@ -7491,18 +7495,10 @@ class DSRC:
         _TestMessage05_body,
         TestMessage05,
         _TestMessage06_header,
-        ___TestMessage06_regional_regionId_tab,
-        __TestMessage06_regional_regionId,
-        ___TestMessage06_regional_regExtValue_tab,
-        __TestMessage06_regional_regExtValue,
-        _TestMessage06_regional,
+        _TestMessage06_body,
         TestMessage06,
         _TestMessage07_header,
-        ___TestMessage07_regional_regionId_tab,
-        __TestMessage07_regional_regionId,
-        ___TestMessage07_regional_regExtValue_tab,
-        __TestMessage07_regional_regExtValue,
-        _TestMessage07_regional,
+        _TestMessage07_body,
         TestMessage07,
         _TestMessage08_header,
         ___TestMessage08_regional_regionId_tab,
@@ -7611,6 +7607,11 @@ class DSRC:
         _MobilityResponse_reason,
         _MobilityResponse_repeat,
         MobilityResponse,
+        _EmergencyVehicleResponse_canChangeLanes,
+        _EmergencyVehicleResponse_reason,
+        EmergencyVehicleResponse,
+        _EmergencyVehicleAck_acknowledgement,
+        EmergencyVehicleAck,
         Id64b,
         Id128b,
         EpochMins,
@@ -8796,6 +8797,7 @@ class DSRC:
         signalStatusMessage,
         travelerInformation,
         personalSafetyMessage,
+        sensorDataSharingMessage,
         testMessage00,
         testMessage01,
         testMessage02,
@@ -8937,6 +8939,7 @@ class DSRC:
         addGrpA,
         addGrpB,
         addGrpC,
+        addGrpCarma,
         RequestedItem,
         RequestID,
         RequestImportanceLevel,
@@ -9055,7 +9058,6 @@ class REGION:
         'Reg-NodeOffsetPointXY',
         'Reg-Position3D',
         'Reg-RestrictionUserType',
-        'Reg-BasicSafetyMessage',
         'Reg-CommonSafetyRequest',
         'Reg-EmergencyVehicleAlert',
         'Reg-IntersectionCollision',
@@ -9070,6 +9072,7 @@ class REGION:
         'Reg-TravelerInformation',
         'Reg-PersonalSafetyMessage',
         'Reg-MapData',
+        'Reg-BasicSafetyMessage',
         'Reg-TestMessage00',
         'Reg-TestMessage01',
         'Reg-TestMessage02',
@@ -9120,7 +9123,6 @@ class REGION:
         'Reg-NodeOffsetPointXY',
         'Reg-Position3D',
         'Reg-RestrictionUserType',
-        'Reg-BasicSafetyMessage',
         'Reg-CommonSafetyRequest',
         'Reg-EmergencyVehicleAlert',
         'Reg-IntersectionCollision',
@@ -9135,6 +9137,7 @@ class REGION:
         'Reg-TravelerInformation',
         'Reg-PersonalSafetyMessage',
         'Reg-MapData',
+        'Reg-BasicSafetyMessage',
         'Reg-TestMessage00',
         'Reg-TestMessage01',
         'Reg-TestMessage02',
@@ -9185,7 +9188,6 @@ class REGION:
         'Reg-NodeOffsetPointXY',
         'Reg-Position3D',
         'Reg-RestrictionUserType',
-        'Reg-BasicSafetyMessage',
         'Reg-CommonSafetyRequest',
         'Reg-EmergencyVehicleAlert',
         'Reg-IntersectionCollision',
@@ -9200,6 +9202,7 @@ class REGION:
         'Reg-TravelerInformation',
         'Reg-PersonalSafetyMessage',
         'Reg-MapData',
+        'Reg-BasicSafetyMessage',
         'Reg-TestMessage00',
         'Reg-TestMessage01',
         'Reg-TestMessage02',
@@ -9348,10 +9351,6 @@ class REGION:
     _Reg_RestrictionUserType_val_Type_0 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('AddGrpC', 'RestrictionUserType-addGrpC')))
     Reg_RestrictionUserType._val = ASN1Set(rv=[dict([('Type', _Reg_RestrictionUserType_val_Type_0), ('id', 3)])], rr=[], ev=[], er=[])
     
-    #-----< Reg-BasicSafetyMessage >-----#
-    Reg_BasicSafetyMessage = CLASS(name='Reg-BasicSafetyMessage', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
-    Reg_BasicSafetyMessage._val = ASN1Set(rv=[], rr=[], ev=[], er=[])
-    
     #-----< Reg-CommonSafetyRequest >-----#
     Reg_CommonSafetyRequest = CLASS(name='Reg-CommonSafetyRequest', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
     Reg_CommonSafetyRequest._val = ASN1Set(rv=[], rr=[], ev=[], er=[])
@@ -9408,6 +9407,11 @@ class REGION:
     Reg_MapData = CLASS(name='Reg-MapData', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
     _Reg_MapData_val_Type_0 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('AddGrpC', 'MapData-addGrpC')))
     Reg_MapData._val = ASN1Set(rv=[dict([('Type', _Reg_MapData_val_Type_0), ('id', 3)])], rr=[], ev=[], er=[])
+    
+    #-----< Reg-BasicSafetyMessage >-----#
+    Reg_BasicSafetyMessage = CLASS(name='Reg-BasicSafetyMessage', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
+    _Reg_BasicSafetyMessage_val_Type_0 = SEQ(name='Type', mode=MODE_TYPE, typeref=ASN1RefType(('AddGrpCarma', 'BasicSafetyMessage-addGrpCarma')))
+    Reg_BasicSafetyMessage._val = ASN1Set(rv=[dict([('Type', _Reg_BasicSafetyMessage_val_Type_0), ('id', 128)])], rr=[], ev=[], er=[])
     
     #-----< Reg-TestMessage00 >-----#
     Reg_TestMessage00 = CLASS(name='Reg-TestMessage00', mode=MODE_SET, typeref=ASN1RefType(('DSRC', 'REG-EXT-ID-AND-TYPE')))
@@ -9512,7 +9516,6 @@ class REGION:
         _Reg_Position3D_val_Type_1,
         Reg_RestrictionUserType,
         _Reg_RestrictionUserType_val_Type_0,
-        Reg_BasicSafetyMessage,
         Reg_CommonSafetyRequest,
         Reg_EmergencyVehicleAlert,
         Reg_IntersectionCollision,
@@ -9528,6 +9531,8 @@ class REGION:
         Reg_PersonalSafetyMessage,
         Reg_MapData,
         _Reg_MapData_val_Type_0,
+        Reg_BasicSafetyMessage,
+        _Reg_BasicSafetyMessage_val_Type_0,
         Reg_TestMessage00,
         Reg_TestMessage01,
         Reg_TestMessage02,
@@ -10248,4 +10253,542 @@ class ITIS:
         ITIScodes,
     ]
 
-init_modules(DSRC, REGION, AddGrpC, AddGrpB, NTCIP, ITIS)
+class AddGrpCarma:
+
+    _name_  = 'AddGrpCarma'
+    _oid_   = []
+    
+    _obj_ = [
+        'BasicSafetyMessage-addGrpCarma',
+        'Position3D-addGrpCarma',
+        ]
+    _type_ = [
+        'BasicSafetyMessage-addGrpCarma',
+        'Position3D-addGrpCarma',
+        ]
+    _set_ = [
+        ]
+    _val_ = [
+        ]
+    _class_ = [
+        ]
+    _param_ = [
+        ]
+    
+    #-----< BasicSafetyMessage-addGrpCarma >-----#
+    BasicSafetyMessage_addGrpCarma = SEQ(name='BasicSafetyMessage-addGrpCarma', mode=MODE_TYPE)
+    _BasicSafetyMessage_addGrpCarma_routeDestinationPoints = SEQ_OF(name='routeDestinationPoints', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), opt=True)
+    __BasicSafetyMessage_addGrpCarma_routeDestinationPoints__item_ = SEQ(name='_item_', mode=MODE_TYPE, typeref=ASN1RefType(('AddGrpCarma', 'Position3D-addGrpCarma')))
+    _BasicSafetyMessage_addGrpCarma_routeDestinationPoints._cont = __BasicSafetyMessage_addGrpCarma_routeDestinationPoints__item_
+    _BasicSafetyMessage_addGrpCarma_routeDestinationPoints._const_sz = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=1, ub=8)], ev=None, er=[])
+    BasicSafetyMessage_addGrpCarma._cont = ASN1Dict([
+        ('routeDestinationPoints', _BasicSafetyMessage_addGrpCarma_routeDestinationPoints),
+        ])
+    BasicSafetyMessage_addGrpCarma._ext = []
+    
+    #-----< Position3D-addGrpCarma >-----#
+    Position3D_addGrpCarma = SEQ(name='Position3D-addGrpCarma', mode=MODE_TYPE)
+    _Position3D_addGrpCarma_lat = INT(name='lat', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Latitude')))
+    _Position3D_addGrpCarma_long = INT(name='long', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Longitude')))
+    _Position3D_addGrpCarma_elevation = INT(name='elevation', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Elevation')), opt=True)
+    Position3D_addGrpCarma._cont = ASN1Dict([
+        ('lat', _Position3D_addGrpCarma_lat),
+        ('long', _Position3D_addGrpCarma_long),
+        ('elevation', _Position3D_addGrpCarma_elevation),
+        ])
+    Position3D_addGrpCarma._ext = []
+    
+    _all_ = [
+        __BasicSafetyMessage_addGrpCarma_routeDestinationPoints__item_,
+        _BasicSafetyMessage_addGrpCarma_routeDestinationPoints,
+        BasicSafetyMessage_addGrpCarma,
+        _Position3D_addGrpCarma_lat,
+        _Position3D_addGrpCarma_long,
+        _Position3D_addGrpCarma_elevation,
+        Position3D_addGrpCarma,
+    ]
+
+class SDSM:
+
+    _name_  = 'SDSM'
+    _oid_   = []
+    
+    _obj_ = [
+        'SensorDataSharingMessage',
+        'EquipmentType',
+        'DetectedObjectList',
+        'DetectedObjectData',
+        'DetectedObjectOptionalData',
+        'DetectedObjectCommonData',
+        'DetectedVehicleData',
+        'DetectedVRUData',
+        'DetectedObstacleData',
+        'ObjectType',
+        'ObjectID',
+        'ClassificationConfidence',
+        'MeasurementTimeOffset',
+        'PositionOffsetXYZ',
+        'ObjectDistance',
+        'Attitude',
+        'PitchDetected',
+        'RollDetected',
+        'YawDetected',
+        'AttitudeConfidence',
+        'AngularVelocity',
+        'PitchRate',
+        'RollRate',
+        'AngularVelocityConfidence',
+        'PitchRateConfidence',
+        'RollRateConfidence',
+        'VehicleSizeConfidence',
+        'ObstacleSize',
+        'ObstacleSizeConfidence',
+        'SizeValue',
+        'SizeValueConfidence',
+        ]
+    _type_ = [
+        'SensorDataSharingMessage',
+        'EquipmentType',
+        'DetectedObjectList',
+        'DetectedObjectData',
+        'DetectedObjectOptionalData',
+        'DetectedObjectCommonData',
+        'DetectedVehicleData',
+        'DetectedVRUData',
+        'DetectedObstacleData',
+        'ObjectType',
+        'ObjectID',
+        'ClassificationConfidence',
+        'MeasurementTimeOffset',
+        'PositionOffsetXYZ',
+        'ObjectDistance',
+        'Attitude',
+        'PitchDetected',
+        'RollDetected',
+        'YawDetected',
+        'AttitudeConfidence',
+        'AngularVelocity',
+        'PitchRate',
+        'RollRate',
+        'AngularVelocityConfidence',
+        'PitchRateConfidence',
+        'RollRateConfidence',
+        'VehicleSizeConfidence',
+        'ObstacleSize',
+        'ObstacleSizeConfidence',
+        'SizeValue',
+        'SizeValueConfidence',
+        ]
+    _set_ = [
+        ]
+    _val_ = [
+        ]
+    _class_ = [
+        ]
+    _param_ = [
+        ]
+    
+    #-----< SensorDataSharingMessage >-----#
+    SensorDataSharingMessage = SEQ(name='SensorDataSharingMessage', mode=MODE_TYPE)
+    _SensorDataSharingMessage_msgCnt = INT(name='msgCnt', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'MsgCount')))
+    _SensorDataSharingMessage_sourceID = OCT_STR(name='sourceID', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'TemporaryID')))
+    _SensorDataSharingMessage_equipmentType = ENUM(name='equipmentType', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'EquipmentType')))
+    _SensorDataSharingMessage_sDSMTimeStamp = SEQ(name='sDSMTimeStamp', mode=MODE_TYPE, tag=(3, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'DDateTime')))
+    _SensorDataSharingMessage_refPos = SEQ(name='refPos', mode=MODE_TYPE, tag=(4, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Position3D')))
+    _SensorDataSharingMessage_refPosXYConf = SEQ(name='refPosXYConf', mode=MODE_TYPE, tag=(5, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'PositionalAccuracy')))
+    _SensorDataSharingMessage_refPosElConf = ENUM(name='refPosElConf', mode=MODE_TYPE, tag=(6, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'ElevationConfidence')), opt=True)
+    _SensorDataSharingMessage_objects = SEQ_OF(name='objects', mode=MODE_TYPE, tag=(7, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedObjectList')))
+    SensorDataSharingMessage._cont = ASN1Dict([
+        ('msgCnt', _SensorDataSharingMessage_msgCnt),
+        ('sourceID', _SensorDataSharingMessage_sourceID),
+        ('equipmentType', _SensorDataSharingMessage_equipmentType),
+        ('sDSMTimeStamp', _SensorDataSharingMessage_sDSMTimeStamp),
+        ('refPos', _SensorDataSharingMessage_refPos),
+        ('refPosXYConf', _SensorDataSharingMessage_refPosXYConf),
+        ('refPosElConf', _SensorDataSharingMessage_refPosElConf),
+        ('objects', _SensorDataSharingMessage_objects),
+        ])
+    SensorDataSharingMessage._ext = None
+    
+    #-----< EquipmentType >-----#
+    EquipmentType = ENUM(name='EquipmentType', mode=MODE_TYPE)
+    EquipmentType._cont = ASN1Dict([('unknown', 0), ('rsu', 1), ('obu', 2), ('vru', 3)])
+    EquipmentType._ext = []
+    
+    #-----< DetectedObjectList >-----#
+    DetectedObjectList = SEQ_OF(name='DetectedObjectList', mode=MODE_TYPE)
+    _DetectedObjectList__item_ = SEQ(name='_item_', mode=MODE_TYPE, typeref=ASN1RefType(('SDSM', 'DetectedObjectData')))
+    DetectedObjectList._cont = _DetectedObjectList__item_
+    DetectedObjectList._const_sz = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=1, ub=256)], ev=None, er=[])
+    
+    #-----< DetectedObjectData >-----#
+    DetectedObjectData = SEQ(name='DetectedObjectData', mode=MODE_TYPE)
+    _DetectedObjectData_detObjCommon = SEQ(name='detObjCommon', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedObjectCommonData')))
+    _DetectedObjectData_detObjOptData = CHOICE(name='detObjOptData', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_EXPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedObjectOptionalData')), opt=True)
+    DetectedObjectData._cont = ASN1Dict([
+        ('detObjCommon', _DetectedObjectData_detObjCommon),
+        ('detObjOptData', _DetectedObjectData_detObjOptData),
+        ])
+    DetectedObjectData._ext = None
+    
+    #-----< DetectedObjectOptionalData >-----#
+    DetectedObjectOptionalData = CHOICE(name='DetectedObjectOptionalData', mode=MODE_TYPE)
+    _DetectedObjectOptionalData_detVeh = SEQ(name='detVeh', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedVehicleData')))
+    _DetectedObjectOptionalData_detVRU = SEQ(name='detVRU', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedVRUData')))
+    _DetectedObjectOptionalData_detObst = SEQ(name='detObst', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'DetectedObstacleData')))
+    DetectedObjectOptionalData._cont = ASN1Dict([
+        ('detVeh', _DetectedObjectOptionalData_detVeh),
+        ('detVRU', _DetectedObjectOptionalData_detVRU),
+        ('detObst', _DetectedObjectOptionalData_detObst),
+        ])
+    DetectedObjectOptionalData._ext = None
+    
+    #-----< DetectedObjectCommonData >-----#
+    DetectedObjectCommonData = SEQ(name='DetectedObjectCommonData', mode=MODE_TYPE)
+    _DetectedObjectCommonData_objType = ENUM(name='objType', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObjectType')))
+    _DetectedObjectCommonData_objTypeCfd = INT(name='objTypeCfd', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ClassificationConfidence')))
+    _DetectedObjectCommonData_objectID = INT(name='objectID', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObjectID')))
+    _DetectedObjectCommonData_measurementTime = INT(name='measurementTime', mode=MODE_TYPE, tag=(3, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'MeasurementTimeOffset')))
+    _DetectedObjectCommonData_timeConfidence = ENUM(name='timeConfidence', mode=MODE_TYPE, tag=(4, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'TimeConfidence')))
+    _DetectedObjectCommonData_pos = SEQ(name='pos', mode=MODE_TYPE, tag=(5, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'PositionOffsetXYZ')))
+    _DetectedObjectCommonData_posConfidence = SEQ(name='posConfidence', mode=MODE_TYPE, tag=(6, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'PositionConfidenceSet')))
+    _DetectedObjectCommonData_speed = INT(name='speed', mode=MODE_TYPE, tag=(7, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Speed')))
+    _DetectedObjectCommonData_speedConfidence = ENUM(name='speedConfidence', mode=MODE_TYPE, tag=(8, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'SpeedConfidence')))
+    _DetectedObjectCommonData_speedZ = INT(name='speedZ', mode=MODE_TYPE, tag=(9, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Speed')), opt=True)
+    _DetectedObjectCommonData_speedConfidenceZ = ENUM(name='speedConfidenceZ', mode=MODE_TYPE, tag=(10, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'SpeedConfidence')), opt=True)
+    _DetectedObjectCommonData_heading = INT(name='heading', mode=MODE_TYPE, tag=(11, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Heading')))
+    _DetectedObjectCommonData_headingConf = ENUM(name='headingConf', mode=MODE_TYPE, tag=(12, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'HeadingConfidence')))
+    _DetectedObjectCommonData_accel4way = SEQ(name='accel4way', mode=MODE_TYPE, tag=(13, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'AccelerationSet4Way')), opt=True)
+    _DetectedObjectCommonData_accCfdX = ENUM(name='accCfdX', mode=MODE_TYPE, tag=(14, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'AccelerationConfidence')), opt=True)
+    _DetectedObjectCommonData_accCfdY = ENUM(name='accCfdY', mode=MODE_TYPE, tag=(15, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'AccelerationConfidence')), opt=True)
+    _DetectedObjectCommonData_accCfdZ = ENUM(name='accCfdZ', mode=MODE_TYPE, tag=(16, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'AccelerationConfidence')), opt=True)
+    _DetectedObjectCommonData_accCfdYaw = ENUM(name='accCfdYaw', mode=MODE_TYPE, tag=(17, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'YawRateConfidence')), opt=True)
+    DetectedObjectCommonData._cont = ASN1Dict([
+        ('objType', _DetectedObjectCommonData_objType),
+        ('objTypeCfd', _DetectedObjectCommonData_objTypeCfd),
+        ('objectID', _DetectedObjectCommonData_objectID),
+        ('measurementTime', _DetectedObjectCommonData_measurementTime),
+        ('timeConfidence', _DetectedObjectCommonData_timeConfidence),
+        ('pos', _DetectedObjectCommonData_pos),
+        ('posConfidence', _DetectedObjectCommonData_posConfidence),
+        ('speed', _DetectedObjectCommonData_speed),
+        ('speedConfidence', _DetectedObjectCommonData_speedConfidence),
+        ('speedZ', _DetectedObjectCommonData_speedZ),
+        ('speedConfidenceZ', _DetectedObjectCommonData_speedConfidenceZ),
+        ('heading', _DetectedObjectCommonData_heading),
+        ('headingConf', _DetectedObjectCommonData_headingConf),
+        ('accel4way', _DetectedObjectCommonData_accel4way),
+        ('accCfdX', _DetectedObjectCommonData_accCfdX),
+        ('accCfdY', _DetectedObjectCommonData_accCfdY),
+        ('accCfdZ', _DetectedObjectCommonData_accCfdZ),
+        ('accCfdYaw', _DetectedObjectCommonData_accCfdYaw),
+        ])
+    DetectedObjectCommonData._ext = []
+    
+    #-----< DetectedVehicleData >-----#
+    DetectedVehicleData = SEQ(name='DetectedVehicleData', mode=MODE_TYPE)
+    _DetectedVehicleData_lights = BIT_STR(name='lights', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'ExteriorLights')), opt=True)
+    _DetectedVehicleData_vehAttitude = SEQ(name='vehAttitude', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'Attitude')), opt=True)
+    _DetectedVehicleData_vehAttitudeConfidence = SEQ(name='vehAttitudeConfidence', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'AttitudeConfidence')), opt=True)
+    _DetectedVehicleData_vehAngVel = SEQ(name='vehAngVel', mode=MODE_TYPE, tag=(3, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'AngularVelocity')), opt=True)
+    _DetectedVehicleData_vehAngVelConfidence = SEQ(name='vehAngVelConfidence', mode=MODE_TYPE, tag=(4, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'AngularVelocityConfidence')), opt=True)
+    _DetectedVehicleData_size = SEQ(name='size', mode=MODE_TYPE, tag=(5, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'VehicleSize')), opt=True)
+    _DetectedVehicleData_height = INT(name='height', mode=MODE_TYPE, tag=(6, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'VehicleHeight')), opt=True)
+    _DetectedVehicleData_vehicleSizeConfidence = SEQ(name='vehicleSizeConfidence', mode=MODE_TYPE, tag=(7, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'VehicleSizeConfidence')), opt=True)
+    _DetectedVehicleData_vehicleClass = INT(name='vehicleClass', mode=MODE_TYPE, tag=(8, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'BasicVehicleClass')), opt=True)
+    _DetectedVehicleData_classConf = INT(name='classConf', mode=MODE_TYPE, tag=(9, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ClassificationConfidence')), opt=True)
+    DetectedVehicleData._cont = ASN1Dict([
+        ('lights', _DetectedVehicleData_lights),
+        ('vehAttitude', _DetectedVehicleData_vehAttitude),
+        ('vehAttitudeConfidence', _DetectedVehicleData_vehAttitudeConfidence),
+        ('vehAngVel', _DetectedVehicleData_vehAngVel),
+        ('vehAngVelConfidence', _DetectedVehicleData_vehAngVelConfidence),
+        ('size', _DetectedVehicleData_size),
+        ('height', _DetectedVehicleData_height),
+        ('vehicleSizeConfidence', _DetectedVehicleData_vehicleSizeConfidence),
+        ('vehicleClass', _DetectedVehicleData_vehicleClass),
+        ('classConf', _DetectedVehicleData_classConf),
+        ])
+    DetectedVehicleData._ext = []
+    
+    #-----< DetectedVRUData >-----#
+    DetectedVRUData = SEQ(name='DetectedVRUData', mode=MODE_TYPE)
+    _DetectedVRUData_basicType = ENUM(name='basicType', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'PersonalDeviceUserType')), opt=True)
+    _DetectedVRUData_propulsion = CHOICE(name='propulsion', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_EXPLICIT), typeref=ASN1RefType(('DSRC', 'PropelledInformation')), opt=True)
+    _DetectedVRUData_attachment = ENUM(name='attachment', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'Attachment')), opt=True)
+    _DetectedVRUData_radius = INT(name='radius', mode=MODE_TYPE, tag=(3, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'AttachmentRadius')), opt=True)
+    DetectedVRUData._cont = ASN1Dict([
+        ('basicType', _DetectedVRUData_basicType),
+        ('propulsion', _DetectedVRUData_propulsion),
+        ('attachment', _DetectedVRUData_attachment),
+        ('radius', _DetectedVRUData_radius),
+        ])
+    DetectedVRUData._ext = None
+    
+    #-----< DetectedObstacleData >-----#
+    DetectedObstacleData = SEQ(name='DetectedObstacleData', mode=MODE_TYPE)
+    _DetectedObstacleData_obstSize = SEQ(name='obstSize', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObstacleSize')))
+    _DetectedObstacleData_obstSizeConfidence = SEQ(name='obstSizeConfidence', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObstacleSizeConfidence')))
+    DetectedObstacleData._cont = ASN1Dict([
+        ('obstSize', _DetectedObstacleData_obstSize),
+        ('obstSizeConfidence', _DetectedObstacleData_obstSizeConfidence),
+        ])
+    DetectedObstacleData._ext = None
+    
+    #-----< ObjectType >-----#
+    ObjectType = ENUM(name='ObjectType', mode=MODE_TYPE)
+    ObjectType._cont = ASN1Dict([('unknown', 0), ('vehicle', 1), ('vru', 2), ('animal', 3)])
+    ObjectType._ext = []
+    
+    #-----< ObjectID >-----#
+    ObjectID = INT(name='ObjectID', mode=MODE_TYPE)
+    ObjectID._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=65535)], ev=None, er=[])
+    
+    #-----< ClassificationConfidence >-----#
+    ClassificationConfidence = INT(name='ClassificationConfidence', mode=MODE_TYPE)
+    ClassificationConfidence._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=101)], ev=None, er=[])
+    
+    #-----< MeasurementTimeOffset >-----#
+    MeasurementTimeOffset = INT(name='MeasurementTimeOffset', mode=MODE_TYPE)
+    MeasurementTimeOffset._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-1500, ub=1500)], ev=None, er=[])
+    
+    #-----< PositionOffsetXYZ >-----#
+    PositionOffsetXYZ = SEQ(name='PositionOffsetXYZ', mode=MODE_TYPE)
+    _PositionOffsetXYZ_offsetX = INT(name='offsetX', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObjectDistance')))
+    _PositionOffsetXYZ_offsetY = INT(name='offsetY', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObjectDistance')))
+    _PositionOffsetXYZ_offsetZ = INT(name='offsetZ', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'ObjectDistance')), opt=True)
+    PositionOffsetXYZ._cont = ASN1Dict([
+        ('offsetX', _PositionOffsetXYZ_offsetX),
+        ('offsetY', _PositionOffsetXYZ_offsetY),
+        ('offsetZ', _PositionOffsetXYZ_offsetZ),
+        ])
+    PositionOffsetXYZ._ext = None
+    
+    #-----< ObjectDistance >-----#
+    ObjectDistance = INT(name='ObjectDistance', mode=MODE_TYPE)
+    ObjectDistance._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-32767, ub=32767)], ev=None, er=[])
+    
+    #-----< Attitude >-----#
+    Attitude = SEQ(name='Attitude', mode=MODE_TYPE)
+    _Attitude_pitch = INT(name='pitch', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'PitchDetected')))
+    _Attitude_roll = INT(name='roll', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'RollDetected')))
+    _Attitude_yaw = INT(name='yaw', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'YawDetected')))
+    Attitude._cont = ASN1Dict([
+        ('pitch', _Attitude_pitch),
+        ('roll', _Attitude_roll),
+        ('yaw', _Attitude_yaw),
+        ])
+    Attitude._ext = None
+    
+    #-----< PitchDetected >-----#
+    PitchDetected = INT(name='PitchDetected', mode=MODE_TYPE)
+    PitchDetected._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-7200, ub=7200)], ev=None, er=[])
+    
+    #-----< RollDetected >-----#
+    RollDetected = INT(name='RollDetected', mode=MODE_TYPE)
+    RollDetected._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-14400, ub=14400)], ev=None, er=[])
+    
+    #-----< YawDetected >-----#
+    YawDetected = INT(name='YawDetected', mode=MODE_TYPE)
+    YawDetected._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-14400, ub=14400)], ev=None, er=[])
+    
+    #-----< AttitudeConfidence >-----#
+    AttitudeConfidence = SEQ(name='AttitudeConfidence', mode=MODE_TYPE)
+    _AttitudeConfidence_pitchConfidence = ENUM(name='pitchConfidence', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'HeadingConfidence')))
+    _AttitudeConfidence_rollConfidence = ENUM(name='rollConfidence', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'HeadingConfidence')))
+    _AttitudeConfidence_yawConfidence = ENUM(name='yawConfidence', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('DSRC', 'HeadingConfidence')))
+    AttitudeConfidence._cont = ASN1Dict([
+        ('pitchConfidence', _AttitudeConfidence_pitchConfidence),
+        ('rollConfidence', _AttitudeConfidence_rollConfidence),
+        ('yawConfidence', _AttitudeConfidence_yawConfidence),
+        ])
+    AttitudeConfidence._ext = None
+    
+    #-----< AngularVelocity >-----#
+    AngularVelocity = SEQ(name='AngularVelocity', mode=MODE_TYPE)
+    _AngularVelocity_pitchRate = INT(name='pitchRate', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'PitchRate')))
+    _AngularVelocity_rollRate = INT(name='rollRate', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'RollRate')))
+    AngularVelocity._cont = ASN1Dict([
+        ('pitchRate', _AngularVelocity_pitchRate),
+        ('rollRate', _AngularVelocity_rollRate),
+        ])
+    AngularVelocity._ext = None
+    
+    #-----< PitchRate >-----#
+    PitchRate = INT(name='PitchRate', mode=MODE_TYPE)
+    PitchRate._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-32767, ub=32767)], ev=None, er=[])
+    
+    #-----< RollRate >-----#
+    RollRate = INT(name='RollRate', mode=MODE_TYPE)
+    RollRate._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=-32767, ub=32767)], ev=None, er=[])
+    
+    #-----< AngularVelocityConfidence >-----#
+    AngularVelocityConfidence = SEQ(name='AngularVelocityConfidence', mode=MODE_TYPE)
+    _AngularVelocityConfidence_pitchRateConfidence = ENUM(name='pitchRateConfidence', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'PitchRateConfidence')), opt=True)
+    _AngularVelocityConfidence_rollRateConfidence = ENUM(name='rollRateConfidence', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'RollRateConfidence')), opt=True)
+    AngularVelocityConfidence._cont = ASN1Dict([
+        ('pitchRateConfidence', _AngularVelocityConfidence_pitchRateConfidence),
+        ('rollRateConfidence', _AngularVelocityConfidence_rollRateConfidence),
+        ])
+    AngularVelocityConfidence._ext = None
+    
+    #-----< PitchRateConfidence >-----#
+    PitchRateConfidence = ENUM(name='PitchRateConfidence', mode=MODE_TYPE)
+    PitchRateConfidence._cont = ASN1Dict([('unavailable', 0), ('degSec-100-00', 1), ('degSec-010-00', 2), ('degSec-005-00', 3), ('degSec-001-00', 4), ('degSec-000-10', 5), ('degSec-000-05', 6), ('degSec-000-01', 7)])
+    PitchRateConfidence._ext = None
+    
+    #-----< RollRateConfidence >-----#
+    RollRateConfidence = ENUM(name='RollRateConfidence', mode=MODE_TYPE)
+    RollRateConfidence._cont = ASN1Dict([('unavailable', 0), ('degSec-100-00', 1), ('degSec-010-00', 2), ('degSec-005-00', 3), ('degSec-001-00', 4), ('degSec-000-10', 5), ('degSec-000-05', 6), ('degSec-000-01', 7)])
+    RollRateConfidence._ext = None
+    
+    #-----< VehicleSizeConfidence >-----#
+    VehicleSizeConfidence = SEQ(name='VehicleSizeConfidence', mode=MODE_TYPE)
+    _VehicleSizeConfidence_vehicleWidthConfidence = ENUM(name='vehicleWidthConfidence', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')))
+    _VehicleSizeConfidence_vehicleLengthConfidence = ENUM(name='vehicleLengthConfidence', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')))
+    _VehicleSizeConfidence_vehicleHeightConfidence = ENUM(name='vehicleHeightConfidence', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')), opt=True)
+    VehicleSizeConfidence._cont = ASN1Dict([
+        ('vehicleWidthConfidence', _VehicleSizeConfidence_vehicleWidthConfidence),
+        ('vehicleLengthConfidence', _VehicleSizeConfidence_vehicleLengthConfidence),
+        ('vehicleHeightConfidence', _VehicleSizeConfidence_vehicleHeightConfidence),
+        ])
+    VehicleSizeConfidence._ext = None
+    
+    #-----< ObstacleSize >-----#
+    ObstacleSize = SEQ(name='ObstacleSize', mode=MODE_TYPE)
+    _ObstacleSize_width = INT(name='width', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValue')))
+    _ObstacleSize_length = INT(name='length', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValue')))
+    _ObstacleSize_height = INT(name='height', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValue')), opt=True)
+    ObstacleSize._cont = ASN1Dict([
+        ('width', _ObstacleSize_width),
+        ('length', _ObstacleSize_length),
+        ('height', _ObstacleSize_height),
+        ])
+    ObstacleSize._ext = None
+    
+    #-----< ObstacleSizeConfidence >-----#
+    ObstacleSizeConfidence = SEQ(name='ObstacleSizeConfidence', mode=MODE_TYPE)
+    _ObstacleSizeConfidence_widthConfidence = ENUM(name='widthConfidence', mode=MODE_TYPE, tag=(0, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')))
+    _ObstacleSizeConfidence_lengthConfidence = ENUM(name='lengthConfidence', mode=MODE_TYPE, tag=(1, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')))
+    _ObstacleSizeConfidence_heightConfidence = ENUM(name='heightConfidence', mode=MODE_TYPE, tag=(2, TAG_CONTEXT_SPEC, TAG_IMPLICIT), typeref=ASN1RefType(('SDSM', 'SizeValueConfidence')), opt=True)
+    ObstacleSizeConfidence._cont = ASN1Dict([
+        ('widthConfidence', _ObstacleSizeConfidence_widthConfidence),
+        ('lengthConfidence', _ObstacleSizeConfidence_lengthConfidence),
+        ('heightConfidence', _ObstacleSizeConfidence_heightConfidence),
+        ])
+    ObstacleSizeConfidence._ext = None
+    
+    #-----< SizeValue >-----#
+    SizeValue = INT(name='SizeValue', mode=MODE_TYPE)
+    SizeValue._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=1023)], ev=None, er=[])
+    
+    #-----< SizeValueConfidence >-----#
+    SizeValueConfidence = ENUM(name='SizeValueConfidence', mode=MODE_TYPE)
+    SizeValueConfidence._cont = ASN1Dict([('unavailable', 0), ('size-100-00', 1), ('size-050-00', 2), ('size-020-00', 3), ('size-010-00', 4), ('size-005-00', 5), ('size-002-00', 6), ('size-001-00', 7), ('size-000-50', 8), ('size-000-20', 9), ('size-000-10', 10), ('size-000-05', 11), ('size-000-02', 12), ('size-000-01', 13)])
+    SizeValueConfidence._ext = None
+    
+    _all_ = [
+        _SensorDataSharingMessage_msgCnt,
+        _SensorDataSharingMessage_sourceID,
+        _SensorDataSharingMessage_equipmentType,
+        _SensorDataSharingMessage_sDSMTimeStamp,
+        _SensorDataSharingMessage_refPos,
+        _SensorDataSharingMessage_refPosXYConf,
+        _SensorDataSharingMessage_refPosElConf,
+        _SensorDataSharingMessage_objects,
+        SensorDataSharingMessage,
+        EquipmentType,
+        _DetectedObjectList__item_,
+        DetectedObjectList,
+        _DetectedObjectData_detObjCommon,
+        _DetectedObjectData_detObjOptData,
+        DetectedObjectData,
+        _DetectedObjectOptionalData_detVeh,
+        _DetectedObjectOptionalData_detVRU,
+        _DetectedObjectOptionalData_detObst,
+        DetectedObjectOptionalData,
+        _DetectedObjectCommonData_objType,
+        _DetectedObjectCommonData_objTypeCfd,
+        _DetectedObjectCommonData_objectID,
+        _DetectedObjectCommonData_measurementTime,
+        _DetectedObjectCommonData_timeConfidence,
+        _DetectedObjectCommonData_pos,
+        _DetectedObjectCommonData_posConfidence,
+        _DetectedObjectCommonData_speed,
+        _DetectedObjectCommonData_speedConfidence,
+        _DetectedObjectCommonData_speedZ,
+        _DetectedObjectCommonData_speedConfidenceZ,
+        _DetectedObjectCommonData_heading,
+        _DetectedObjectCommonData_headingConf,
+        _DetectedObjectCommonData_accel4way,
+        _DetectedObjectCommonData_accCfdX,
+        _DetectedObjectCommonData_accCfdY,
+        _DetectedObjectCommonData_accCfdZ,
+        _DetectedObjectCommonData_accCfdYaw,
+        DetectedObjectCommonData,
+        _DetectedVehicleData_lights,
+        _DetectedVehicleData_vehAttitude,
+        _DetectedVehicleData_vehAttitudeConfidence,
+        _DetectedVehicleData_vehAngVel,
+        _DetectedVehicleData_vehAngVelConfidence,
+        _DetectedVehicleData_size,
+        _DetectedVehicleData_height,
+        _DetectedVehicleData_vehicleSizeConfidence,
+        _DetectedVehicleData_vehicleClass,
+        _DetectedVehicleData_classConf,
+        DetectedVehicleData,
+        _DetectedVRUData_basicType,
+        _DetectedVRUData_propulsion,
+        _DetectedVRUData_attachment,
+        _DetectedVRUData_radius,
+        DetectedVRUData,
+        _DetectedObstacleData_obstSize,
+        _DetectedObstacleData_obstSizeConfidence,
+        DetectedObstacleData,
+        ObjectType,
+        ObjectID,
+        ClassificationConfidence,
+        MeasurementTimeOffset,
+        _PositionOffsetXYZ_offsetX,
+        _PositionOffsetXYZ_offsetY,
+        _PositionOffsetXYZ_offsetZ,
+        PositionOffsetXYZ,
+        ObjectDistance,
+        _Attitude_pitch,
+        _Attitude_roll,
+        _Attitude_yaw,
+        Attitude,
+        PitchDetected,
+        RollDetected,
+        YawDetected,
+        _AttitudeConfidence_pitchConfidence,
+        _AttitudeConfidence_rollConfidence,
+        _AttitudeConfidence_yawConfidence,
+        AttitudeConfidence,
+        _AngularVelocity_pitchRate,
+        _AngularVelocity_rollRate,
+        AngularVelocity,
+        PitchRate,
+        RollRate,
+        _AngularVelocityConfidence_pitchRateConfidence,
+        _AngularVelocityConfidence_rollRateConfidence,
+        AngularVelocityConfidence,
+        PitchRateConfidence,
+        RollRateConfidence,
+        _VehicleSizeConfidence_vehicleWidthConfidence,
+        _VehicleSizeConfidence_vehicleLengthConfidence,
+        _VehicleSizeConfidence_vehicleHeightConfidence,
+        VehicleSizeConfidence,
+        _ObstacleSize_width,
+        _ObstacleSize_length,
+        _ObstacleSize_height,
+        ObstacleSize,
+        _ObstacleSizeConfidence_widthConfidence,
+        _ObstacleSizeConfidence_lengthConfidence,
+        _ObstacleSizeConfidence_heightConfidence,
+        ObstacleSizeConfidence,
+        SizeValue,
+        SizeValueConfidence,
+    ]
+
+init_modules(DSRC, REGION, AddGrpC, AddGrpB, NTCIP, ITIS, AddGrpCarma, SDSM)

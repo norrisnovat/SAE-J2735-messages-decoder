@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from binascii import unhexlify
-import J2735_201603_combined_mobility
+import J2735_201603_2023_06_22
 import sys
 import csv
 import numpy
@@ -55,18 +55,20 @@ def writeMessageHeader(msgType):
     if (msgType == "BSM") :
         fout.write("packetTimestamp,bsm_id,secMark,latency,latitude,longitude,speed(m/s),heading,elevation(m),accel_long(m/s^2)\n")
     elif (msgType=="MAP"):
-        fout.write("packetTimestamp,intersectionID,latitude,longitude,laneWidth\n")  
+        fout.write("packetTimestamp,intersectionID,latitude,longitude,laneWidth,signalGroupID\n")
+    elif (msgType=="SDSM"):
+        fout.write("packetTimestamp,msgCnt,sourceId,lat,long,heading\n")
     elif (msgType=="Mobility Request"):
         fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,planType,urgency,strategyParams,trajectoryStart,trajectory,expiration\n")
-    elif (msgType=="Mobility Response") : 
+    elif (msgType=="Mobility Response"): 
         fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,urgency,isAccepted\n")
-    elif (msgType=="Mobility Path") : 
+    elif (msgType=="Mobility Path"): 
         fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,location,trajectory\n")
-    elif (msgType=="Mobility Operation") : 
+    elif (msgType=="Mobility Operation"): 
         fout.write("packetTimestamp,hostStaticId,hostBSMId,planId,strategy,operationParams:\n")
     elif (msgType=="Traffic Control Request") :
         fout.write("packetTimestamp,reqid,reqseq,scale,bounds:\n")
-    elif (msgType=="Traffic Control Message") : 
+    elif (msgType=="Traffic Control Message"): 
         fout.write("packetTimestamp,reqid,reqseq,msgtot,msgnum,id,updated,label,tcID,vclasses...,schedule...,detail...,geometry...\n")
     elif (msgType == "SPAT"):
         writeSpatHeader()
@@ -95,8 +97,7 @@ prevSpatTimestamp = 0
 for dt in list1:
 
     if (dt[1][0:4]==msgid):
-        msg = J2735_201603_combined_mobility.DSRC.MessageFrame
-        #print("hex: " + dt[1] + " byte length: " + str(len(dt[1])))
+        msg = J2735_201603_2023_06_22.DSRC.MessageFrame
         try:
             msg.from_uper(unhexlify(dt[1]))
         except:
@@ -104,7 +105,7 @@ for dt in list1:
 
         
         # SPAT
-        if (msgid == "0013") :
+        if (msgid == "0013"):
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
             instersectionPhaseArray = msg()['value'][1]['intersections'][0]['states']
             
@@ -126,17 +127,19 @@ for dt in list1:
                 fout.write(spatString)
 
         # MAP
-        elif (msgid == "0012") :
+        elif (msgid == "0012"):
             intersectionID = msg()['value'][1]['intersections'][0]['id']['id']
             #if intersectionID == intersection:
             lat = msg()['value'][1]['intersections'][0]['refPoint']['lat']
             longstr = msg()['value'][1]['intersections'][0]['refPoint']['long']
             laneWidth = msg()['value'][1]['intersections'][0]['laneWidth']
-            fout.write(str(dt[0])+','+str(intersectionID)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(laneWidth)+'\n')
+            signalGroupID = msg()['value'][1]['intersections'][0]['laneSet'][0]['connectsTo'][0]['signalGroup']
+
+            fout.write(str(dt[0])+','+str(intersectionID)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(laneWidth)+','+str(signalGroupID)+'\n')
         
         # BSM
-        elif (msgid == "0014") : # if bsm , look for lat, long, speed along with time
-            bsmId = msg()['value'][1]['coreData']['id']
+        elif (msgid == "0014"):
+            bsmId = msg()['value'][1]['coreData']['id'].hex()
             lat= msg()['value'][1]['coreData']['lat']
             longstr = msg()['value'][1]['coreData']['long']
             speed = msg()['value'][1]['coreData']['speed']
@@ -158,7 +161,17 @@ for dt in list1:
             
             latency_array.append(latency)
             
-            fout.write(str(dt[0])+','+str(bsmId.hex())+','+str(secMark)+','+str(latency)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(speed_converted)+','+str(heading)+','+str(accel_long_converted)+','+ str(elevation)+'\n')
+            fout.write(str(dt[0])+','+str(bsmId)+','+str(secMark)+','+str(latency)+','+str(lat/10000000.0)+','+str(longstr/10000000.0)+','+str(speed_converted)+','+str(heading)+','+str(accel_long_converted)+','+ str(elevation)+'\n')
+
+        # SDSM
+        elif (msgid == "0029"):
+            msgCnt = msg()['value'][1]['msgCnt']
+            sourceID = msg()['value'][1]['sourceID'].hex()
+            refLat = msg()['value'][1]['refPos']['lat']/10000000.0
+            refLong = msg()['value'][1]['refPos']['long']/10000000.0
+            heading = msg()['value'][1]['objects'][0]['detObjCommon']['heading']
+
+            fout.write(str(dt[0]) + ',' + str(msgCnt) + ',' + str(sourceID) + ',' + str(refLat) + ',' + str(refLong) + ',' + str(heading) + '\n')
 
         # Test Messages
         elif (msgid == "00f0") :
@@ -236,7 +249,7 @@ for dt in list1:
             sys.exit("Invalid message type\n")
 
 
-if (msgid == "0014") : 
+if (msgid == "0014"): 
     print("")
     print("---------- Performance Metrics ----------")
     latency_avg = numpy.average(latency_array)
