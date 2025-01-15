@@ -134,6 +134,7 @@ getPayload() {
 		python3 $directory/src/tshark_OutputParser.py $i $messageType $payloadType
 	done
 	mv *_payload.csv $directory/data/payloadOutput
+	rm *
 }
 
 
@@ -148,6 +149,7 @@ decodePackets() {
 	done
 
 	mv *decoded* $directory/data/decodedOutput
+	rm *
 	printf 'Complete.\n'
 }
 
