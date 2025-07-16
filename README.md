@@ -60,3 +60,32 @@ Before running the scripts, ensure the system is prepared with the necessary too
 - The script currently processes one message type at a time but does so automatically for all `.pcap` files in the `data` directory, enabling efficient batch decoding.
 - You may customize `decoder.py` to add or modify fields for your specific message types.
 - Ensure proper permissions are set for Wireshark and tshark to capture and decode network data.
+
+# Decoding Process and Output Files
+
+## How Decoding Works
+
+### Input `.pcap` Files:  
+Place all raw `.pcap` capture files in the `data` folder. These files contain recorded vehicular communication messages.
+
+### Payload Extraction:  
+The bash script `extract.sh` uses `tshark` to read each `.pcap` file and extract raw payload data. Initially, it attempts to extract the payload as hexadecimal strings. If the message type is not found, it retries using ASCII extraction.
+
+### Payload Parsing:  
+Extracted raw payloads are parsed and cleaned using the Python script `tshark_OutputParser.py`. This step removes unnecessary bytes and formats the payload for decoding.
+
+### Message Decoding:  
+The cleaned payloads are then decoded by `decoder.py`, which interprets the payload according to the selected SAE J2735 message type (e.g., BSM, SPAT, MAP). The decoded data is written into human-readable CSV files.
+
+---
+
+## Output Folder Structure
+
+- **`data/tsharkOutput/`**  
+  Contains the raw extracted payload files from each `.pcap` file after running `tshark`. These files are intermediate outputs in hex or ASCII format.
+
+- **`data/payloadOutput/`**  
+  Stores the cleaned and parsed payload CSV files produced by `tshark_OutputParser.py`. These files have extraneous data removed and are ready for decoding.
+
+- **`data/decodedOutput/`**  
+  Contains the final decoded CSV files output by `decoder.py`. Each file corresponds to a decoded message type from a source `.pcap` file and contains human-readable columns with the extracted fields.
